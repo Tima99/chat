@@ -31,13 +31,15 @@ const registerController = {
 
         // end 
 
-        // todo : check user already exists in database
+        // todo : check user already exists in database by checking email and username
 
         const { username , email , password } = req.body;
 
-        const exists = await User.exists({ email })
+        const existsEmail       = await User.exists({ email })
+        const existsUsername    = username && await User.exists({ username })
 
-        if(exists) throw NewError.error(409 , 'Email Already Exists.')
+        if(existsUsername) throw NewError.error(409 , 'Username should be unique.')
+        if(existsEmail) throw NewError.error(409 , 'Email Already Exists.')
 
         // end
 

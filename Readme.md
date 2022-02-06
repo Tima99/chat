@@ -22,6 +22,7 @@ Setup __.env__ file look like this  👇
     WEB_DOMAIN = http://localhost:7000
     DEBUG_MODE = true
     IS_USERNAME_REQUIRE = true
+    IS_USERNAME_UNIQUE  = true
     DB_URL = mongodb://localhost:27017/rest-api
     SECRET_KEY   = Enter Own Secret Key 
     VERIFY_EMAIL_SECRET_KEY   = Enter own secret for verify emails
@@ -61,6 +62,7 @@ Post Request on http://localhost:7000/api/register contain following JSON
 ```
 
 >Important :  **IS_USERNAME_REQUIRE = true** than username is require at time of Registration of account. Else if false than no need to give username.
+>Important " **IS_USERNAME_UNIQUE = true** than username should be unique.
 
 Note : 
 1. _username length should be between 3-20_
