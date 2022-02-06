@@ -2,6 +2,7 @@ import registerSchema from '../../services/validateSchema'
 import bcrypt from 'bcrypt'
 import { NewError , generateJwt , emailVerifyLink ,sendEmail } from '../../services'
 import { User } from '../../models'
+import { IS_USERNAME_UNIQUE } from '../../config'
 
 //! Checklist
   // [+] 
@@ -36,7 +37,8 @@ const registerController = {
         const { username , email , password } = req.body;
 
         const existsEmail       = await User.exists({ email })
-        const existsUsername    = username && await User.exists({ username })
+        console.log(username && IS_USERNAME_UNIQUE=="true")
+        const existsUsername    = username && IS_USERNAME_UNIQUE=="true" && await User.exists({ username }) || false
 
         if(existsUsername) throw NewError.error(409 , 'Username should be unique.')
         if(existsEmail) throw NewError.error(409 , 'Email Already Exists.')
