@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { SECRET_KEY } from "../../config";
+import { VERIFY_EMAIL_SECRET_KEY } from "../../config";
 import { User } from "../../models";
 import { NewError } from "../../services";
 
@@ -9,7 +9,7 @@ const emailVerifyController = {
 
       const { email_verify_token } = req.params;
 
-      const { email }  = await jwt.verify(email_verify_token, SECRET_KEY);
+      const { email }  = await jwt.verify(email_verify_token, VERIFY_EMAIL_SECRET_KEY);
 
       const user = await User.findOne({ email });
 

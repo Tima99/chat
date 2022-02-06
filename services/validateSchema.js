@@ -1,7 +1,8 @@
 import Joi from "joi"
+import {IS_USERNAME_REQUIRE} from "../config"
 
 const registerSchema = Joi.object({
-    username         : Joi.string().min(3).max(20).required(),
+    username         : (IS_USERNAME_REQUIRE=="true") && Joi.string().min(3).max(20).required() || Joi.string().min(3).max(20),
     email            : Joi.string().email().required(),
     password         : Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{6,15}$')),
     confirm_password : Joi.ref('password') 
@@ -10,13 +11,6 @@ const registerSchema = Joi.object({
 export const loginSchema = Joi.object({
     email    : Joi.string().email().required(),
     password : Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{6,15}$'))
-})
-
-export const registerTeamSchema = Joi.object({
-    teamname   : Joi.string().min(3).max(40).required(),
-    sports     : Joi.string().required(),
-    homeground : Joi.string().required(),
-    password   : Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{6,15}$')),
 })
 
 export default registerSchema;

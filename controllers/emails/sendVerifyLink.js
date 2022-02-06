@@ -6,8 +6,7 @@ const sendVerifyLink = {
             
             const email = req.authUser.email;
 
-            const link = emailVerifyLink({email})
-
+            const link = emailVerifyLink({email, email_verify : true})
             res.send(link)
 
         } catch (err) {
