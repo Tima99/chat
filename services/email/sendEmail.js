@@ -13,9 +13,9 @@ const auth = {
 const nodemailerMailgun = nodemailer.createTransport( mailgun(auth));
 
 const mailSchema = {
-    from    : 'ninja208201@gmail.com',
+    from    : 'Rest-Api <ninja208201@gmail.com>',
     to      : 'amit208201@gmail.com',
-    subject : 'You have got REST-APIs-Test',
+    subject : 'Verify Email on Rest-Api',
     html    : '<a></a>',
     text    : 'This is email verification from mailgun sent to you using node.js',
 }

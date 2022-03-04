@@ -137,18 +137,21 @@ const otpTemplate = (verify_text) => {
                   <tbody>
                     <tr>
                       <td align="left" style="font-size:0px;padding:10px 25px;padding-right:25px;padding-left:25px;word-break:break-word;">
-                        <div style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:16px;line-height:1;text-align:left;color:#000000;"><span>Hello,</span></div>
+                        <div style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:16px;line-height:1;text-align:left;color:#000000;"><span>Welcome 🎉,</span></div>
                       </td>
                     </tr>
                     <tr>
                       <td align="left" style="font-size:0px;padding:10px 25px;padding-right:25px;padding-left:25px;word-break:break-word;">
-                        <div style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:16px;line-height:1;text-align:left;color:#000000;">You have signed up on Rest-Apis,<br /> Verify your email now. <br /><br /> <b>Click link to verify</b> <i>(expires in 24hrs)</i> : </div>
+                        <div style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:16px;line-height:1;text-align:left;color:#000000;">Account Created Sucessfully on Rest-APIs.<br /> Verify your email. <i style="font-size:.75rem;">(expires in 24hrs)</i> : </div>
                       </td>
                     </tr>
                     <tr>
                       <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                        <div style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:16px;font-weight:bold;line-height:1;text-align:left;color:#000000;">
-                          <a href=${verify_text}>${verify_text}</a>
+                        <div style="font-family:open Sans Helvetica, Arial, sans-serif;font-size:16px;font-weight:bold;line-height:1;text-align:center;color:#000000;">
+                          <a href=${verify_text}>
+                          <button style="padding: .6rem; font-size:1.2rem; font-weight: bold; color:white; background: royalblue; border-radius: .45rem; border: 1px solid royalblue;">
+                            Verify Email
+                          </button></a>
                         </div>
                       </td>
                     </tr>
