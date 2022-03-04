@@ -24,9 +24,11 @@ const sendEmail = ( verify_text = null , emailSchema = mailSchema) => {
     if(verify_text)
     mailSchema.html = otpTemplate(verify_text)
 
-    nodemailerMailgun.sendMail( emailSchema , ( err , data) => {
-        if( err ) return console.log(err);
-        console.log(data)
+    return new Promise( (resolve, reject)=>{
+      nodemailerMailgun.sendMail( emailSchema , ( err , data) => {
+          if( err ) reject(err);
+          resolve(data)
+      })
     })
 };
 

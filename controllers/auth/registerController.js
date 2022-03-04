@@ -13,10 +13,10 @@ import { IS_USERNAME_UNIQUE } from '../../config'
   /// prepare model
   // [+] 
   /// generate jwt token , save it to cookie...
+  // [+]
+  /// verify email link send
   // [+] 
   /// store in database
-  // [+]
-  /// verify email 
   // [+] 
   /// send response
 
@@ -37,7 +37,6 @@ const registerController = {
         const { username , email , password } = req.body;
 
         const existsEmail       = await User.exists({ email })
-        console.log(username && IS_USERNAME_UNIQUE=="true")
         const existsUsername    = username && IS_USERNAME_UNIQUE=="true" && await User.exists({ username }) || false
 
         if(existsUsername) throw NewError.error(409 , 'Username should be unique.')
@@ -65,22 +64,18 @@ const registerController = {
         
         // end
 
+        // todo : verify email link send
+        
+        const verify_link = emailVerifyLink({email})
+        await sendEmail(verify_link);
+
         // todo : store in database
 
         const registerUser = await user.save()
-        // console.log(registerUser)
 
         // end
 
-        // todo : verify email
-        
-        const verify_link = emailVerifyLink({email})
-
-        // sendEmail(verify_link);
-
         // end
-
-
         res.json({register : true}); // Register Done!
 
       }
