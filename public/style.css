@@ -1,0 +1,79 @@
+.messages-container{
+    width: 100%;
+    max-width: 750px;
+    height: 30vh;
+    margin: auto;
+    background: rgb(240, 239, 239);
+    font-size: 1.1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: .45rem;
+    overflow: scroll;
+    word-wrap: break-word;
+}
+
+*::-webkit-scrollbar{
+    display: none;
+}
+
+#form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .25rem;
+}
+#form input, #form button{
+    padding: .25rem .5rem;
+    font-size: 1.1rem;
+    margin: 0 .5rem;
+}
+#form button{
+    background-color: orangered;
+    border: 1px solid rgb(207, 57, 3);
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+#active-users{
+    width: 100%;
+    max-width: 750px;
+    margin: auto;
+}
+
+.user{
+    padding: .3rem 0 .5rem 1rem;
+    font-size: 1.2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.user:hover{
+    background-color:  rgba(240, 240, 240, 1);
+    cursor: pointer;
+}
+
+.select-user{
+    color: green;
+    font-size: .9rem;
+    margin-left: .5rem;
+}
+
+.count-unread{
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+    background-color: rgb(40, 219, 40);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: .5rem;
+    font-size: .65rem;
+}
+
+
