@@ -5,15 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Socket io chat app</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script defer src="http://localhost:7000/socket.io/socket.io.js"></script>
+    <script defer src="./script.js"></script>
 </head>
-<body>
+<body onbeforeunload="connection.off()">
     <div class="messages-container">
 
     </div>
 
-    <form action="">
+    <form action="" id="form">
         <input type="text" name="message" id="message-input">
         <button>Send</button>
     </form>
+
+    <div id="active-users"></div>
 </body>
 </html>
