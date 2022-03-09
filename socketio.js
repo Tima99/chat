@@ -18,8 +18,10 @@ const ioconnect = (server)=>{
                 // sender contain key of users
                 if(users[sender] === socket.id)
                     user = sender 
-            
-            room_id && socket.to(room_id).emit("receive-message", user ,msg)
+            room_id ?
+            socket.to(room_id).emit("receive-message", user ,msg)
+            :
+            socket.broadcast.emit("receive-message", user , msg)
         })
 
         socket.on("connection-off", (user)=>{

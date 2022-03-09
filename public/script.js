@@ -2,6 +2,8 @@ const socket = io()
 const title = document.head.querySelector("title")
 const container = document.querySelector(".messages-container")
 const usersContainer = document.getElementById("active-users")
+const selected_candidate = document.getElementById('selected-candidate');
+
 
 let SAVE_MSG = "save-receive-message"
 let saved_msg = []
@@ -71,9 +73,11 @@ const users = {
             if(!userDiv)
             {
                 this.user_id = null // if our previous user not not live we make it null
+                selected_candidate.innerHTML = `To : All`
                 return;
             }
             prevClickElement = userDiv
+            selected_candidate.innerHTML = `To : ${users.user_id}`
             this.selected_icon.add(userDiv)
 
         }
@@ -116,6 +120,8 @@ usersContainer.addEventListener("click" , (e)=>{
 
     // gets click user id 
     users.user_id = e.target.querySelector('.user-name').innerText 
+    // add selected candidate to label
+    selected_candidate.innerHTML = `To : ${users.user_id}`
 
     // selected icon add and remove
     users.selected_icon.remove()

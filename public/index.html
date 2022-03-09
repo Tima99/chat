@@ -11,10 +11,11 @@
     <script defer src="./script.js"></script>
 </head>
 <body onbeforeunload="connection.off()">
-    <div class="messages-container">
-
+    <div class="container">
+        <span id="selected-candidate">To : All</span>
+        <div class="messages-container">    
+        </div>
     </div>
-
     <form action="" id="form">
         <input type="text" name="message" id="message-input">
         <button>Send</button>
